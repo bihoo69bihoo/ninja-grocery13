@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="ar">
 <head>
@@ -686,4 +687,269 @@
     const resetLogoBtn = document.getElementById('resetLogoBtn');
 
     // بيانات المسؤول (ثابتة)
-    const ADMIN_PHONE = '0561
+    const ADMIN_PHONE = '0561368108';
+    const ADMIN_PASS = 'nouh1234';
+
+    // قائمة الشيطان - تخزين جميع المحاولات (نجاح وفشل)
+    let devilAttempts = []; // {id, time, phone, password, status}
+
+    // حالة إظهار/إخفاء كلمة المرور
+    let passwordVisible = false;
+
+    // متغير لتخزين شعار مخصص
+    let customLogoData = null;
+
+    // ====== وظائف قائمة الشيطان ======
+    function addDevilAttempt(phone, password, status) {
+      const now = new Date();
+      const timeStr = now.toTimeString().split(' ')[0]; // HH:MM:SS
+      const dateStr = now.toLocaleDateString('ar-EG'); // تاريخ
+      const fullTime = `${dateStr} ${timeStr}`;
+      const newEntry = {
+        id: devilAttempts.length + 1,
+        time: fullTime,
+        phone: phone || '(غير مدخل)',
+        password: password || '(غير مدخل)',
+        status: status, // 'success' or 'fail'
+      };
+      // إضافة في البداية (الأحدث أولاً)
+      devilAttempts.unshift(newEntry);
+      // إعادة ترقيم
+      devilAttempts.forEach((item, index) => {
+        item.id = index + 1;
+      });
+      // الاحتفاظ بـ 50 فقط
+      if (devilAttempts.length > 50) {
+        devilAttempts = devilAttempts.slice(0, 50);
+      }
+      renderDevilList();
+    }
+
+    function renderDevilList() {
+      if (!devilListContainer) return;
+      if (devilAttempts.length === 0) {
+        devilListContainer.innerHTML = `<div class="empty">⚠️ لا توجد محاولات</div>`;
+        return;
+      }
+      let html = '';
+      devilAttempts.forEach(item => {
+        const statusClass = item.status === 'success' ? 'success' : 'fail';
+        const statusText = item.status === 'success' ? '✅ نجاح' : '❌ فشل';
+        html += `
+          <div class="devil-item">
+            <span class="id">${String(item.id).padStart(2, '0')}</span>
+            <span class="time">${item.time}</span>
+            <span class="status ${statusClass}">${statusText}</span>
+            <span class="phone">📞 ${item.phone}</span>
+            <span class="password">🔑 ${item.password}</span>
+          </div>
+        `;
+      });
+      devilListContainer.innerHTML = html;
+    }
+
+    // ====== تبديل إظهار كلمة المرور ======
+    function togglePasswordVisibility() {
+      passwordVisible = !passwordVisible;
+      passwordInput.type = passwordVisible ? 'text' : 'password';
+      eyeIcon.className = passwordVisible ? 'fas fa-eye' : 'fas fa-eye-slash';
+    }
+
+    // ====== تحديث زر Login ======
+    function updateLoginButton() {
+      const hasText = usernameInput.value.trim().length > 0 || passwordInput.value.trim().length > 0;
+      if (hasText) {
+        loginBtn.classList.add('active');
+      } else {
+        loginBtn.classList.remove('active');
+      }
+    }
+
+    // ====== محاولة تسجيل الدخول ======
+    function handleLogin() {
+      const username = usernameInput.value.trim();
+      const password = passwordInput.value.trim();
+
+      // تسجيل المحاولة (قبل التحقق)
+      // لكن نريد معرفة النجاح أو الفشل بعد التحقق
+      // سنقوم بالتحقق ثم التسجيل
+      let status = 'fail';
+      if (username === ADMIN_PHONE && password === ADMIN_PASS) {
+        status = 'success';
+      }
+
+      // إضافة السجل (مع عرض بيانات الدخول)
+      addDevilAttempt(username, password, status);
+
+      if (status === 'success') {
+        // نجاح: إظهار لوحة المسؤول
+        loginSection.style.display = 'none';
+        adminPanel.classList.add('active');
+        adminPanel.style.display = 'flex';
+        errorMsg.classList.remove('show');
+        // إعادة تعيين الحقول
+        usernameInput.value = '';
+        passwordInput.value = '';
+        updateLoginButton();
+        return;
+      }
+
+      // فشل: إظهار رسالة 404 (غير متوهجة)
+      errorMsg.textContent = '⚠️ 404 — Login failed';
+      errorMsg.classList.add('show');
+      // نعيد تعيين حقل كلمة المرور فقط (ولكن نترك رقم الهاتف)
+      passwordInput.value = '';
+      updateLoginButton();
+    }
+
+    // ====== التحكم بالشعار ======
+    function updateLogoFromFile(file) {
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const dataUrl = e.target.result;
+        const img = document.createElement('img');
+        img.src = dataUrl;
+        img.style.width = '115px';
+        img.style.height = '115px';
+        img.style.objectFit = 'contain';
+        mainLogo.innerHTML = '';
+        mainLogo.appendChild(img);
+        logoPreviewBox.innerHTML = '';
+        const previewImg = document.createElement('img');
+        previewImg.src = dataUrl;
+        previewImg.style.width = '110px';
+        previewImg.style.height = '110px';
+        previewImg.style.objectFit = 'contain';
+        logoPreviewBox.appendChild(previewImg);
+        customLogoData = dataUrl;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function resetLogoToDefault() {
+      mainLogo.innerHTML = `
+        <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="60" cy="60" r="58" fill="#0a0505" stroke="#8a1a1a" stroke-width="1.5"/>
+          <path d="M45 42 L30 22 L42 30 L48 18 L55 28 L62 16 L68 28 L75 18 L82 30 L72 38 L80 44 L70 50 L62 44 L58 52 L52 44 L44 50 L38 44 L45 42Z" fill="#1a0a0a" stroke="#aa2222" stroke-width="2"/>
+          <path d="M38 32 L22 12 L32 18 L28 6 L40 14 L38 32Z" fill="#2a0a0a" stroke="#aa3333" stroke-width="2"/>
+          <path d="M74 28 L90 10 L82 18 L86 4 L74 16 L74 28Z" fill="#2a0a0a" stroke="#aa3333" stroke-width="2"/>
+          <circle cx="48" cy="38" r="6" fill="#cc0000" stroke="#ff4444" stroke-width="1.5"/>
+          <circle cx="68" cy="36" r="6" fill="#cc0000" stroke="#ff4444" stroke-width="1.5"/>
+          <circle cx="48" cy="38" r="2.5" fill="#ffaa00"/>
+          <circle cx="68" cy="36" r="2.5" fill="#ffaa00"/>
+          <rect x="52" y="52" width="16" height="18" rx="4" fill="#1a0a0a" stroke="#aa3333" stroke-width="1.5"/>
+          <circle cx="56" cy="58" r="3" fill="#1a0a0a" stroke="#aa3333" stroke-width="1"/>
+          <circle cx="64" cy="58" r="3" fill="#1a0a0a" stroke="#aa3333" stroke-width="1"/>
+          <path d="M56 64 L60 68 L64 64" stroke="#aa3333" stroke-width="1.5" fill="none"/>
+        </svg>
+      `;
+      logoPreviewBox.innerHTML = `
+        <svg viewBox="0 0 120 120" width="100" height="100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="60" cy="60" r="58" fill="#0a0505" stroke="#8a1a1a" stroke-width="1.5"/>
+          <path d="M45 42 L30 22 L42 30 L48 18 L55 28 L62 16 L68 28 L75 18 L82 30 L72 38 L80 44 L70 50 L62 44 L58 52 L52 44 L44 50 L38 44 L45 42Z" fill="#1a0a0a" stroke="#aa2222" stroke-width="2"/>
+          <path d="M38 32 L22 12 L32 18 L28 6 L40 14 L38 32Z" fill="#2a0a0a" stroke="#aa3333" stroke-width="2"/>
+          <path d="M74 28 L90 10 L82 18 L86 4 L74 16 L74 28Z" fill="#2a0a0a" stroke="#aa3333" stroke-width="2"/>
+          <circle cx="48" cy="38" r="6" fill="#cc0000" stroke="#ff4444" stroke-width="1.5"/>
+          <circle cx="68" cy="36" r="6" fill="#cc0000" stroke="#ff4444" stroke-width="1.5"/>
+          <circle cx="48" cy="38" r="2.5" fill="#ffaa00"/>
+          <circle cx="68" cy="36" r="2.5" fill="#ffaa00"/>
+          <rect x="52" y="52" width="16" height="18" rx="4" fill="#1a0a0a" stroke="#aa3333" stroke-width="1.5"/>
+          <circle cx="56" cy="58" r="3" fill="#1a0a0a" stroke="#aa3333" stroke-width="1"/>
+          <circle cx="64" cy="58" r="3" fill="#1a0a0a" stroke="#aa3333" stroke-width="1"/>
+          <path d="M56 64 L60 68 L64 64" stroke="#aa3333" stroke-width="1.5" fill="none"/>
+        </svg>
+      `;
+      customLogoData = null;
+      logoUpload.value = '';
+    }
+
+    function logoutAdmin() {
+      adminPanel.classList.remove('active');
+      adminPanel.style.display = 'none';
+      loginSection.style.display = 'flex';
+      usernameInput.value = '';
+      passwordInput.value = '';
+      errorMsg.classList.remove('show');
+      updateLoginButton();
+    }
+
+    // ====== أحداث ======
+    showToggle.addEventListener('click', togglePasswordVisibility);
+
+    // مراقبة الإدخال لتحديث زر Login
+    usernameInput.addEventListener('input', updateLoginButton);
+    passwordInput.addEventListener('input', updateLoginButton);
+
+    loginBtn.addEventListener('click', handleLogin);
+
+    usernameInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') handleLogin(); });
+    passwordInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') handleLogin(); });
+
+    logoutBtn.addEventListener('click', logoutAdmin);
+
+    logoUpload.addEventListener('change', function(e) {
+      if (this.files && this.files[0]) {
+        updateLogoFromFile(this.files[0]);
+      }
+    });
+
+    saveLogoBtn.addEventListener('click', function() {
+      if (customLogoData) {
+        alert('✅ تم تطبيق الشعار الجديد');
+      } else {
+        alert('⚠️ يرجى اختيار صورة أولاً');
+      }
+    });
+
+    resetLogoBtn.addEventListener('click', function() {
+      resetLogoToDefault();
+      alert('🔄 تم إعادة الشعار الأصلي');
+    });
+
+    // ====== تهيئة (إضافة بعض المحاولات التجريبية) ======
+    function initDemo() {
+      // إضافة بعض المحاولات الوهمية لتوضيح القائمة
+      const now = new Date();
+      const h = now.getHours();
+      const m = now.getMinutes();
+      const demoData = [
+        { phone: '0555123456', password: '123456', status: 'fail' },
+        { phone: '0561368108', password: 'nouh1234', status: 'success' },
+        { phone: '0533111222', password: 'qwerty', status: 'fail' },
+        { phone: '0509876543', password: 'password', status: 'fail' },
+        { phone: '0561368108', password: 'wrongpass', status: 'fail' },
+      ];
+      demoData.forEach((item, index) => {
+        const time = new Date(now.getTime() - (index * 60000));
+        const timeStr = time.toTimeString().split(' ')[0];
+        const dateStr = time.toLocaleDateString('ar-EG');
+        const fullTime = `${dateStr} ${timeStr}`;
+        devilAttempts.push({
+          id: index + 1,
+          time: fullTime,
+          phone: item.phone,
+          password: item.password,
+          status: item.status,
+        });
+      });
+      // عكس الترتيب ليصبح الأحدث أولاً (آخر عنصر هو الأحدث)
+      devilAttempts.reverse();
+      devilAttempts.forEach((item, idx) => {
+        item.id = idx + 1;
+      });
+      renderDevilList();
+    }
+    initDemo();
+
+    // التأكد من أن لوحة المسؤول مخفية
+    adminPanel.style.display = 'none';
+    adminPanel.classList.remove('active');
+    errorMsg.classList.remove('show');
+
+    console.log('🔥 نظام الشيطان الأمني جاهز مع تحديثات جديدة');
+  })();
+</script>
+</body>
+</html>
+```
