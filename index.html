@@ -6,6 +6,7 @@
   <title>نظام الشيطان الأمني</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
+    /* ===== إعادة تعيين ===== */
     * {
       margin: 0;
       padding: 0;
@@ -13,50 +14,59 @@
       font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
     }
     body {
-      background-color: #0C0F14; /* نفس لون الخلفية الداكنة */
+      background-color: #000000;
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
       min-height: 100vh;
       margin: 0;
       padding: 0;
     }
-    /* الحاوية الرئيسية تملأ الشاشة بالكامل بدون حواف سوداء */
+
+    /* ===== الحاوية الرئيسية ===== */
     .app-container {
       width: 100%;
+      max-width: 796px;
       min-height: 100vh;
       background-color: #0C0F14;
       display: flex;
       flex-direction: column;
       position: relative;
     }
-    .top-dark-section {
+
+    /* ===== واجهة تسجيل الدخول ===== */
+    .login-wrapper {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      width: 100%;
+    }
+    .top-section {
       background-color: #0C0F14;
       width: 100%;
       flex-shrink: 0;
-      padding-bottom: 12px;
+      padding-bottom: 8px;
     }
-    .bottom-black-section {
+    .bottom-section {
       background-color: #000000;
       width: 100%;
       flex: 1;
-      min-height: 80px;
+      min-height: 60px;
     }
     .language-selector {
       display: flex;
       justify-content: center;
       align-items: center;
-      padding-top: 30px;
-      padding-bottom: 8px;
+      padding-top: 28px;
+      padding-bottom: 10px;
       color: #a0a4ae;
-      font-size: 26px;
+      font-size: 24px;
       font-weight: 400;
-      letter-spacing: 0.3px;
       gap: 4px;
     }
     .language-selector span { color: #aeb2bb; }
     .language-selector i {
-      font-size: 22px;
+      font-size: 20px;
       color: #aeb2bb;
       margin-left: 6px;
     }
@@ -64,9 +74,9 @@
       width: 100%;
       height: 1px;
       background-color: #1e2228;
-      margin: 8px 0 0 0;
       border: none;
     }
+
     .login-form {
       padding: 0 24px;
       display: flex;
@@ -78,11 +88,11 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 20px 0 22px 0;
+      margin: 18px 0 20px 0;
     }
     .logo-goat {
-      width: 115px;
-      height: 115px;
+      width: 110px;
+      height: 110px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -91,15 +101,14 @@
       width: 100%;
       height: 100%;
       display: block;
-      filter: drop-shadow(0 0 6px rgba(180, 0, 0, 0.3));
+      filter: drop-shadow(0 0 8px rgba(180, 0, 0, 0.3));
     }
     .field-label {
       color: #aeb2bb;
-      font-size: 26px;
+      font-size: 22px;
       font-weight: 400;
-      margin-bottom: 6px;
-      letter-spacing: 0.2px;
-      margin-top: 10px;
+      margin-bottom: 4px;
+      margin-top: 8px;
     }
     .field-label:first-of-type { margin-top: 0; }
     .input-container {
@@ -107,11 +116,11 @@
       background-color: #25282D;
       border: 1px solid #30343A;
       border-radius: 2px;
-      height: 97px;
+      height: 78px;
       display: flex;
       align-items: center;
-      padding: 0 18px;
-      margin-bottom: 6px;
+      padding: 0 16px;
+      margin-bottom: 4px;
       transition: border 0.15s ease;
     }
     .input-container:focus-within { border-color: #4a5df5; }
@@ -122,14 +131,13 @@
       border: none;
       outline: none;
       color: #e8ecf2;
-      font-size: 26px;
+      font-size: 22px;
       font-weight: 400;
-      letter-spacing: 0.5px;
       padding: 0;
     }
     .input-container input::placeholder {
       color: #5a5f69;
-      font-size: 26px;
+      font-size: 22px;
       font-weight: 300;
       opacity: 0.7;
     }
@@ -146,44 +154,42 @@
       border: none;
       outline: none;
       color: #e8ecf2;
-      font-size: 26px;
+      font-size: 22px;
       font-weight: 400;
     }
     .password-wrapper input::placeholder {
       color: #5a5f69;
-      font-size: 26px;
+      font-size: 22px;
       font-weight: 300;
       opacity: 0.7;
     }
     .show-toggle {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       color: #aeb2bb;
-      font-size: 25px;
+      font-size: 20px;
       font-weight: 400;
       cursor: default;
       user-select: none;
       flex-shrink: 0;
-      padding-left: 8px;
+      padding-left: 6px;
     }
-    .show-toggle i { font-size: 26px; color: #aeb2bb; }
+    .show-toggle i { font-size: 22px; color: #aeb2bb; }
+
     .login-btn {
       width: 100%;
-      height: 85px;
+      height: 72px;
       background-color: #073858;
       border: none;
-      border-radius: 26px;
+      border-radius: 24px;
       color: #b0c4d9;
-      font-size: 27px;
+      font-size: 24px;
       font-weight: 600;
-      letter-spacing: 0.8px;
-      margin: 18px 0 8px 0;
+      letter-spacing: 0.6px;
+      margin: 14px 0 6px 0;
       cursor: pointer;
       transition: background 0.3s, color 0.3s;
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
     .login-btn.active {
       background-color: #1a7b9e;
@@ -191,289 +197,403 @@
     }
     .login-btn:hover { background-color: #0a466b; }
     .login-btn.active:hover { background-color: #2a8fb0; }
+
     .forgot-password {
       text-align: center;
       color: #e2e5ea;
-      font-size: 26px;
+      font-size: 22px;
       font-weight: 600;
-      margin: 12px 0 22px 0;
+      margin: 10px 0 16px 0;
     }
     .continue-btn {
       width: 100%;
-      height: 86px;
+      height: 72px;
       background-color: #4A5DF5;
       border: none;
-      border-radius: 26px;
+      border-radius: 24px;
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
       color: white;
-      font-size: 26px;
+      font-size: 22px;
       font-weight: 600;
-      margin: 10px 0 12px 0;
+      margin: 8px 0 10px 0;
       cursor: pointer;
       transition: background 0.15s;
     }
     .continue-btn i {
-      font-size: 34px;
+      font-size: 30px;
       background: white;
       border-radius: 50%;
-      padding: 6px;
+      padding: 5px;
       color: #4A5DF5;
       display: inline-flex;
       justify-content: center;
       align-items: center;
-      width: 38px;
-      height: 38px;
+      width: 34px;
+      height: 34px;
     }
     .continue-btn:hover { background-color: #3b4ee0; }
     .or-divider {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 18px;
-      margin: 18px 0 12px 0;
+      gap: 14px;
+      margin: 14px 0 10px 0;
       color: #7a7f8a;
-      font-size: 24px;
+      font-size: 20px;
       font-weight: 400;
     }
     .or-line {
       flex: 1;
       height: 1px;
       background-color: #303030;
-      max-width: 120px;
+      max-width: 100px;
     }
     .create-account {
       text-align: center;
       color: #e2e5ea;
-      font-size: 26px;
+      font-size: 22px;
       font-weight: 600;
-      margin: 18px 0 50px 0;
+      margin: 14px 0 40px 0;
     }
     .error-message {
       color: #ff4d4d;
-      font-size: 26px;
+      font-size: 22px;
       font-weight: 500;
-      margin: 8px 0 2px 0;
+      margin: 6px 0 2px 0;
       text-align: center;
       display: none;
       background: transparent;
-      padding: 8px;
+      padding: 6px;
       border: none;
-      text-shadow: none;
     }
     .error-message.show { display: block; }
 
     /* ===== لوحة المسؤول ===== */
     .admin-panel {
       display: none;
-      background-color: #050000;
+      background: #080000;
       color: #ddd;
-      padding: 20px 18px;
+      padding: 16px 14px;
       min-height: 100vh;
       flex-direction: column;
       width: 100%;
+      background-image: radial-gradient(ellipse at 20% 50%, rgba(80, 0, 0, 0.15) 0%, transparent 60%),
+                        radial-gradient(ellipse at 80% 50%, rgba(80, 0, 0, 0.15) 0%, transparent 60%);
     }
     .admin-panel.active { display: flex; }
+
     .admin-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #3a1a1a;
-      padding-bottom: 12px;
-      margin-bottom: 20px;
+      border-bottom: 2px solid #3a0a0a;
+      padding-bottom: 10px;
+      margin-bottom: 16px;
       flex-wrap: wrap;
     }
     .admin-header h1 {
-      font-size: 32px;
-      color: #cc3333;
-      text-shadow: 0 0 10px #660000;
+      font-size: 30px;
+      color: #cc2222;
+      text-shadow: 0 0 20px #660000, 0 0 40px #330000;
       letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
+    .admin-header h1 i { font-size: 28px; }
     .admin-header button {
-      background: #2a0a0a;
-      border: 1px solid #6a2020;
-      color: #dd8888;
-      padding: 10px 22px;
+      background: #1a0505;
+      border: 1px solid #5a1515;
+      color: #cc6666;
+      padding: 8px 18px;
       border-radius: 30px;
-      font-size: 22px;
+      font-size: 20px;
       cursor: pointer;
-      transition: 0.2s;
+      transition: 0.3s;
     }
-    .admin-header button:hover { background: #4a1515; }
+    .admin-header button:hover {
+      background: #3a0a0a;
+      border-color: #aa3333;
+    }
+
+    .admin-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .stat-card {
+      background: #0d0303;
+      border: 1px solid #2a0a0a;
+      border-radius: 10px;
+      padding: 12px 8px;
+      text-align: center;
+    }
+    .stat-card .number {
+      font-size: 28px;
+      font-weight: 700;
+      color: #dd4444;
+      text-shadow: 0 0 10px rgba(200, 0, 0, 0.3);
+    }
+    .stat-card .label {
+      font-size: 14px;
+      color: #7a5a5a;
+      margin-top: 2px;
+    }
+
     .admin-dashboard {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 18px;
-      margin-bottom: 30px;
+      gap: 14px;
+      margin-bottom: 20px;
     }
     .admin-card {
-      background: #0f0505;
-      border: 1px solid #3a1a1a;
+      background: #0a0303;
+      border: 1px solid #2a0a0a;
       border-radius: 12px;
-      padding: 20px 16px;
-      box-shadow: 0 0 20px rgba(80,0,0,0.3);
+      padding: 14px 12px;
+      box-shadow: 0 0 30px rgba(60, 0, 0, 0.2);
     }
     .admin-card h3 {
-      color: #bb5555;
-      font-size: 24px;
-      margin-bottom: 12px;
-      border-bottom: 1px solid #2a1212;
+      color: #bb4444;
+      font-size: 20px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #1a0808;
       padding-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
+    .admin-card h3 i { font-size: 18px; }
+
     .logo-control {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
     }
     .logo-control .preview-box {
-      background: #0a0505;
-      border: 2px dashed #4a1a1a;
-      padding: 16px;
+      background: #0a0303;
+      border: 2px dashed #3a1515;
+      padding: 12px;
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 130px;
+      min-height: 110px;
+      border-radius: 8px;
     }
     .logo-control .preview-box img,
     .logo-control .preview-box svg {
-      max-width: 110px;
-      max-height: 110px;
+      max-width: 100px;
+      max-height: 100px;
     }
     .logo-control input[type="file"] {
       color: #aaa;
-      background: #1a0a0a;
-      padding: 10px;
-      border: 1px solid #3a2020;
-      border-radius: 8px;
+      background: #0f0505;
+      padding: 8px;
+      border: 1px solid #2a0f0f;
+      border-radius: 6px;
       width: 100%;
+      font-size: 14px;
     }
     .btn-group {
       display: flex;
-      gap: 10px;
+      gap: 8px;
       flex-wrap: wrap;
-      margin-top: 6px;
     }
     .btn-group button {
-      background: #1a0a0a;
-      border: 1px solid #4a2020;
-      color: #ccaaaa;
-      padding: 8px 18px;
-      border-radius: 24px;
-      font-size: 18px;
+      background: #0f0505;
+      border: 1px solid #3a1515;
+      color: #bb8888;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 16px;
       cursor: pointer;
       flex: 1 0 auto;
+      transition: 0.2s;
     }
-    .btn-group button:hover { background: #2a1212; }
+    .btn-group button:hover {
+      background: #1f0a0a;
+      border-color: #6a2222;
+      color: #dd9999;
+    }
 
-    /* Devil List - تظهر جميع البيانات */
-    .devil-list {
-      margin-top: 12px;
-      background: #0d0505;
-      border-radius: 12px;
-      padding: 6px 0;
-      max-height: 400px;
-      overflow-y: auto;
-    }
-    .devil-item {
+    /* ===== قوائم الشيطان والملعونين ===== */
+    .lists-container {
       display: grid;
-      grid-template-columns: 45px 100px 65px 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 6px;
+    }
+    .list-box {
+      background: #0a0303;
+      border: 1px solid #2a0a0a;
+      border-radius: 12px;
+      padding: 12px 10px;
+    }
+    .list-box h4 {
+      color: #bb4444;
+      font-size: 18px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
       gap: 6px;
-      padding: 10px 12px;
-      border-bottom: 1px solid #2a1010;
+      border-bottom: 1px solid #1a0808;
+      padding-bottom: 4px;
+    }
+    .list-box h4 .badge {
+      font-size: 14px;
+      background: #1a0505;
+      padding: 0 10px;
+      border-radius: 12px;
+      color: #aa5555;
+    }
+    .list-scroll {
+      max-height: 200px;
+      overflow-y: auto;
+      border-radius: 6px;
+    }
+    .list-item {
+      display: grid;
+      grid-template-columns: 30px 80px 1fr 1fr;
+      gap: 4px;
+      padding: 6px 6px;
+      border-bottom: 1px solid #150808;
       color: #b0a0a0;
-      font-size: 16px;
+      font-size: 13px;
       align-items: center;
     }
-    .devil-item .id {
-      color: #aa3333;
+    .list-item .idx {
+      color: #883333;
       font-weight: 700;
+      font-size: 12px;
     }
-    .devil-item .time {
-      color: #9a8a8a;
-      font-size: 14px;
+    .list-item .time {
+      color: #7a6a6a;
+      font-size: 11px;
     }
-    .devil-item .status { font-weight: 600; }
-    .devil-item .status.success { color: #4caf50; }
-    .devil-item .status.fail { color: #cc6666; }
-    .devil-item .phone {
-      color: #aab;
-      font-size: 14px;
+    .list-item .phone {
+      color: #aabbcc;
+      font-size: 13px;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
     }
-    .devil-item .password {
-      color: #887;
-      font-size: 14px;
+    .list-item .pass {
+      color: #887766;
+      font-size: 13px;
       font-family: monospace;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
     }
-    .devil-list .empty {
-      padding: 28px;
+    .list-item.status-success { border-left: 3px solid #4caf50; }
+    .list-item.status-fail { border-left: 3px solid #cc3333; }
+
+    .empty-list {
+      padding: 16px;
       text-align: center;
-      color: #5a4a4a;
-      font-size: 22px;
+      color: #4a3a3a;
+      font-size: 16px;
     }
+
     .admin-footer {
-      margin-top: 30px;
-      padding: 12px;
-      border-top: 1px solid #2a1212;
-      color: #5a4a4a;
+      margin-top: 20px;
+      padding: 10px;
+      border-top: 1px solid #1a0808;
+      color: #4a3a3a;
       text-align: center;
-      font-size: 18px;
+      font-size: 16px;
     }
+
+    /* ===== تجاوب ===== */
     @media (max-width: 600px) {
-      .devil-item {
-        grid-template-columns: 35px 75px 55px 1fr 1fr;
-        font-size: 13px;
-        gap: 4px;
-      }
-      .devil-item .time { font-size: 12px; }
       .admin-dashboard { grid-template-columns: 1fr; }
+      .lists-container { grid-template-columns: 1fr; }
+      .admin-stats { grid-template-columns: repeat(3, 1fr); }
+      .list-item {
+        grid-template-columns: 25px 65px 1fr 1fr;
+        font-size: 12px;
+        gap: 3px;
+      }
+      .list-item .time { font-size: 10px; }
     }
-    @media (max-width: 500px) {
+    @media (max-width: 480px) {
       .login-form { padding: 0 16px; }
       .language-selector {
-        font-size: 22px;
+        font-size: 20px;
         padding-top: 20px;
       }
-      .field-label { font-size: 22px; }
+      .field-label { font-size: 18px; }
       .input-container {
-        height: 80px;
-        padding: 0 14px;
+        height: 64px;
+        padding: 0 12px;
       }
       .input-container input,
-      .password-wrapper input { font-size: 22px; }
-      .show-toggle { font-size: 20px; }
+      .password-wrapper input { font-size: 18px; }
+      .show-toggle { font-size: 17px; }
+      .show-toggle i { font-size: 18px; }
       .login-btn {
-        height: 72px;
-        font-size: 23px;
-        border-radius: 22px;
+        height: 60px;
+        font-size: 20px;
+        border-radius: 20px;
       }
       .continue-btn {
-        height: 72px;
-        font-size: 22px;
-        gap: 10px;
+        height: 60px;
+        font-size: 18px;
+        gap: 8px;
+      }
+      .continue-btn i {
+        width: 28px;
+        height: 28px;
+        font-size: 24px;
+        padding: 4px;
       }
       .forgot-password,
-      .create-account { font-size: 22px; }
+      .create-account { font-size: 18px; }
+      .or-divider { font-size: 17px; }
+      .admin-header h1 { font-size: 24px; }
+      .admin-header button { font-size: 16px; padding: 6px 14px; }
+      .stat-card .number { font-size: 22px; }
+      .admin-card h3 { font-size: 17px; }
     }
-    @media (max-width: 380px) {
-      .login-form { padding: 0 12px; }
-      .input-container { height: 70px; }
+    @media (max-width: 360px) {
+      .login-form { padding: 0 10px; }
+      .input-container { height: 56px; }
+      .input-container input,
+      .password-wrapper input { font-size: 16px; }
+      .logo-goat { width: 80px; height: 80px; }
+      .list-item { font-size: 11px; grid-template-columns: 20px 55px 1fr 1fr; }
     }
-    .hidden { display: none !important; }
+
+    /* ===== تأثيرات نارية للخلفية ===== */
+    .fire-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      background: radial-gradient(ellipse at 20% 80%, rgba(200, 50, 0, 0.05) 0%, transparent 50%),
+                  radial-gradient(ellipse at 80% 20%, rgba(200, 50, 0, 0.05) 0%, transparent 50%);
+    }
+    .admin-panel { position: relative; z-index: 1; }
   </style>
 </head>
 <body>
+
+<!-- ===== صوت ضحكة شيطانية ===== -->
+<audio id="laughAudio" preload="auto">
+  <source src="data:audio/wav;base64,U3RlcmVvIGlzIGR1bWIuLi4gVGhpcyBpcyBhIHBsYWNlaG9sZGVyIGZvciB0aGUgbGF1Z2ggc291bmQuIElmIHlvdSB3YW50IGEgcmVhbCBzb3VuZCwgeW91IG5lZWQgdG8gcHJvdmlkZSBhbiBhdWRpbyBmaWxlLiBUaGUgY29kZSB3aWxsIHBsYXkgYSBzaW1wbGUgYmVlcCBpZiBubyBhdWRpbyBpcyBmb3VuZC4=" type="audio/wav">
+</audio>
+
 <div class="app-container" id="appContainer">
-  <!-- ====== صفحة الدخول ====== -->
-  <div id="loginSection" style="display: flex; flex-direction: column; min-height: 100vh;">
-    <div class="top-dark-section">
+  <!-- ====== واجهة تسجيل الدخول ====== -->
+  <div id="loginWrapper" class="login-wrapper">
+    <div class="top-section">
       <div class="language-selector">
         <span>English (US)</span>
         <i class="fas fa-chevron-down"></i>
@@ -506,7 +626,7 @@
       <div class="input-container">
         <input type="text" id="usernameInput" placeholder=" " value="" />
       </div>
-      <div class="field-label" style="margin-top: 12px;">Enter your password</div>
+      <div class="field-label" style="margin-top: 10px;">Enter your password</div>
       <div class="input-container">
         <div class="password-wrapper">
           <input type="password" id="passwordInput" placeholder=" " value="" />
@@ -529,21 +649,39 @@
       </div>
       <div class="create-account">Create new account</div>
     </div>
-    <div class="bottom-black-section"></div>
+    <div class="bottom-section"></div>
   </div>
 
   <!-- ====== لوحة المسؤول ====== -->
   <div id="adminPanel" class="admin-panel">
     <div class="admin-header">
-      <h1>🔥 HELL ADMIN</h1>
+      <h1><i class="fas fa-fire"></i> HELL ADMIN</h1>
       <button id="logoutAdminBtn"><i class="fas fa-skull"></i> Exit</button>
     </div>
+
+    <!-- إحصائيات -->
+    <div class="admin-stats" id="statsContainer">
+      <div class="stat-card">
+        <div class="number" id="totalCount">0</div>
+        <div class="label">إجمالي المحاولات</div>
+      </div>
+      <div class="stat-card">
+        <div class="number" id="successCount" style="color:#4caf50;">0</div>
+        <div class="label">✅ ناجحة</div>
+      </div>
+      <div class="stat-card">
+        <div class="number" id="failCount" style="color:#cc3333;">0</div>
+        <div class="label">❌ فاشلة</div>
+      </div>
+    </div>
+
     <div class="admin-dashboard">
+      <!-- Logo Control -->
       <div class="admin-card">
         <h3><i class="fas fa-pentagram"></i> Logo Control</h3>
         <div class="logo-control">
           <div class="preview-box" id="logoPreviewBox">
-            <svg viewBox="0 0 120 120" width="100" height="100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 120 120" width="90" height="90" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="60" cy="60" r="58" fill="#0a0505" stroke="#8a1a1a" stroke-width="1.5"/>
               <path d="M45 42 L30 22 L42 30 L48 18 L55 28 L62 16 L68 28 L75 18 L82 30 L72 38 L80 44 L70 50 L62 44 L58 52 L52 44 L44 50 L38 44 L45 42Z" fill="#1a0a0a" stroke="#aa2222" stroke-width="2"/>
               <path d="M38 32 L22 12 L32 18 L28 6 L40 14 L38 32Z" fill="#2a0a0a" stroke="#aa3333" stroke-width="2"/>
@@ -560,33 +698,50 @@
           </div>
           <input type="file" id="logoUpload" accept="image/*" />
           <div class="btn-group">
-            <button id="saveLogoBtn"><i class="fas fa-save"></i> Save Logo</button>
+            <button id="saveLogoBtn"><i class="fas fa-save"></i> Save</button>
             <button id="resetLogoBtn"><i class="fas fa-undo-alt"></i> Reset</button>
           </div>
         </div>
       </div>
+
+      <!-- إحصائيات سريعة -->
       <div class="admin-card">
-        <h3><i class="fas fa-list-ul"></i> Devil List (جميع المحاولات)</h3>
-        <div id="devilListContainer" class="devil-list">
-          <div class="empty">⚠️ لا توجد محاولات</div>
-        </div>
-        <div style="margin-top: 12px; font-size: 18px; color: #5a3a3a;">
-          <i class="fas fa-skull"></i> أقصى 50 سجل (الأحدث أولاً)
+        <h3><i class="fas fa-chart-bar"></i> Quick Stats</h3>
+        <div style="display:flex;flex-direction:column;gap:6px;padding:4px 0;">
+          <div style="display:flex;justify-content:space-between;color:#8a7a7a;font-size:16px;">
+            <span>🔴 آخر محاولة فاشلة</span>
+            <span id="lastFailTime" style="color:#cc6666;">—</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;color:#8a7a7a;font-size:16px;">
+            <span>🟢 آخر محاولة ناجحة</span>
+            <span id="lastSuccessTime" style="color:#4caf50;">—</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;color:#8a7a7a;font-size:16px;border-top:1px solid #1a0808;padding-top:6px;">
+            <span>👹 إجمالي الملعونين</span>
+            <span id="totalFailCount" style="color:#cc3333;font-weight:700;">0</span>
+          </div>
         </div>
       </div>
     </div>
-    <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-top: 10px;">
-      <div style="background: #0f0505; border: 1px solid #2a1212; border-radius: 12px; padding: 16px 22px; flex:1;">
-        <h4 style="color:#aa5555;"><i class="fas fa-shield-alt"></i> Security</h4>
-        <p style="color:#7a5a5a;">CAPTCHA, rate limiting, محاكاة الحماية.</p>
+
+    <!-- قوائم الشيطان والملعونين -->
+    <div class="lists-container">
+      <div class="list-box">
+        <h4><i class="fas fa-check-circle" style="color:#4caf50;"></i> قائمة الشيطان <span class="badge" id="successBadge">0</span></h4>
+        <div class="list-scroll" id="successList">
+          <div class="empty-list">لا توجد محاولات ناجحة</div>
+        </div>
       </div>
-      <div style="background: #0f0505; border: 1px solid #2a1212; border-radius: 12px; padding: 16px 22px; flex:1;">
-        <h4 style="color:#aa5555;"><i class="fas fa-cogs"></i> Settings</h4>
-        <p style="color:#7a5a5a;">إعدادات إضافية (وضع الصيانة، الإشعارات).</p>
+      <div class="list-box">
+        <h4><i class="fas fa-times-circle" style="color:#cc3333;"></i> قائمة الملعونين <span class="badge" id="failBadge">0</span></h4>
+        <div class="list-scroll" id="failList">
+          <div class="empty-list">لا توجد محاولات فاشلة</div>
+        </div>
       </div>
     </div>
+
     <div class="admin-footer">
-      <i class="fas fa-fire"></i> نظام الشيطان الأمني v2.0
+      <i class="fas fa-fire"></i> نظام الشيطان الأمني v3.0 — <span id="footerTime"></span>
     </div>
   </div>
 </div>
@@ -595,8 +750,8 @@
   (function() {
     "use strict";
 
-    // عناصر DOM
-    var loginSection = document.getElementById('loginSection');
+    // ====== عناصر DOM ======
+    var loginWrapper = document.getElementById('loginWrapper');
     var adminPanel = document.getElementById('adminPanel');
     var usernameInput = document.getElementById('usernameInput');
     var passwordInput = document.getElementById('passwordInput');
@@ -605,7 +760,6 @@
     var showToggle = document.getElementById('showToggle');
     var eyeIcon = document.getElementById('eyeIcon');
     var logoutBtn = document.getElementById('logoutAdminBtn');
-    var devilListContainer = document.getElementById('devilListContainer');
 
     var mainLogo = document.getElementById('mainLogo');
     var logoPreviewBox = document.getElementById('logoPreviewBox');
@@ -613,53 +767,129 @@
     var saveLogoBtn = document.getElementById('saveLogoBtn');
     var resetLogoBtn = document.getElementById('resetLogoBtn');
 
+    var successList = document.getElementById('successList');
+    var failList = document.getElementById('failList');
+    var successBadge = document.getElementById('successBadge');
+    var failBadge = document.getElementById('failBadge');
+    var totalCount = document.getElementById('totalCount');
+    var successCount = document.getElementById('successCount');
+    var failCount = document.getElementById('failCount');
+    var totalFailCount = document.getElementById('totalFailCount');
+    var lastFailTime = document.getElementById('lastFailTime');
+    var lastSuccessTime = document.getElementById('lastSuccessTime');
+    var footerTime = document.getElementById('footerTime');
+
+    var laughAudio = document.getElementById('laughAudio');
+
+    // ====== بيانات المسؤول ======
     var ADMIN_PHONE = '0561368108';
     var ADMIN_PASS = 'nouh1234';
 
-    var devilAttempts = [];
+    // ====== قوائم المحاولات ======
+    var successAttempts = []; // {phone, password, time}
+    var failAttempts = [];   // {phone, password, time}
+
     var passwordVisible = false;
     var customLogoData = null;
+    var isAdminLoggedIn = false;
 
-    // ====== قائمة الشيطان ======
-    function addDevilAttempt(phone, password, status) {
+    // ====== تحديث الوقت في التذييل ======
+    function updateFooterTime() {
+      var now = new Date();
+      footerTime.textContent = now.toLocaleString('ar-EG');
+    }
+    setInterval(updateFooterTime, 1000);
+    updateFooterTime();
+
+    // ====== وظائف القوائم ======
+    function addAttempt(phone, password, success) {
       var now = new Date();
       var timeStr = now.toTimeString().split(' ')[0];
       var dateStr = now.toLocaleDateString('ar-EG');
       var fullTime = dateStr + ' ' + timeStr;
-      var newEntry = {
-        id: devilAttempts.length + 1,
-        time: fullTime,
-        phone: phone || '(غير مدخل)',
-        password: password || '(غير مدخل)',
-        status: status
-      };
-      devilAttempts.unshift(newEntry);
-      devilAttempts.forEach(function(item, index) {
-        item.id = index + 1;
-      });
-      if (devilAttempts.length > 50) devilAttempts = devilAttempts.slice(0, 50);
-      renderDevilList();
+      var entry = { phone: phone || '(غير مدخل)', password: password || '(غير مدخل)', time: fullTime };
+
+      if (success) {
+        successAttempts.unshift(entry);
+        if (successAttempts.length > 30) successAttempts.pop();
+        lastSuccessTime.textContent = fullTime;
+      } else {
+        failAttempts.unshift(entry);
+        if (failAttempts.length > 30) failAttempts.pop();
+        lastFailTime.textContent = fullTime;
+      }
+      renderLists();
     }
 
-    function renderDevilList() {
-      if (!devilListContainer) return;
-      if (devilAttempts.length === 0) {
-        devilListContainer.innerHTML = '<div class="empty">⚠️ لا توجد محاولات</div>';
-        return;
+    function renderLists() {
+      // قائمة الناجحين
+      if (successAttempts.length === 0) {
+        successList.innerHTML = '<div class="empty-list">لا توجد محاولات ناجحة</div>';
+      } else {
+        var html = '';
+        successAttempts.forEach(function(item, index) {
+          html += '<div class="list-item status-success">' +
+            '<span class="idx">' + String(index + 1).padStart(2, '0') + '</span>' +
+            '<span class="time">' + item.time + '</span>' +
+            '<span class="phone">📞 ' + item.phone + '</span>' +
+            '<span class="pass">🔑 ' + item.password + '</span>' +
+            '</div>';
+        });
+        successList.innerHTML = html;
       }
-      var html = '';
-      devilAttempts.forEach(function(item) {
-        var statusClass = item.status === 'success' ? 'success' : 'fail';
-        var statusText = item.status === 'success' ? '✅ نجاح' : '❌ فشل';
-        html += '<div class="devil-item">' +
-          '<span class="id">' + String(item.id).padStart(2, '0') + '</span>' +
-          '<span class="time">' + item.time + '</span>' +
-          '<span class="status ' + statusClass + '">' + statusText + '</span>' +
-          '<span class="phone">📞 ' + item.phone + '</span>' +
-          '<span class="password">🔑 ' + item.password + '</span>' +
-          '</div>';
+
+      // قائمة الفاشلين
+      if (failAttempts.length === 0) {
+        failList.innerHTML = '<div class="empty-list">لا توجد محاولات فاشلة</div>';
+      } else {
+        var html2 = '';
+        failAttempts.forEach(function(item, index) {
+          html2 += '<div class="list-item status-fail">' +
+            '<span class="idx">' + String(index + 1).padStart(2, '0') + '</span>' +
+            '<span class="time">' + item.time + '</span>' +
+            '<span class="phone">📞 ' + item.phone + '</span>' +
+            '<span class="pass">🔑 ' + item.password + '</span>' +
+            '</div>';
+        });
+        failList.innerHTML = html2;
+      }
+
+      // تحديث البادجات والإحصائيات
+      successBadge.textContent = successAttempts.length;
+      failBadge.textContent = failAttempts.length;
+      totalCount.textContent = successAttempts.length + failAttempts.length;
+      successCount.textContent = successAttempts.length;
+      failCount.textContent = failAttempts.length;
+      totalFailCount.textContent = failAttempts.length;
+    }
+
+    // ====== تسجيل محاولة تجريبية للعرض ======
+    function addDemoAttempts() {
+      var now = new Date();
+      // إضافة بعض المحاولات الوهمية فقط للعرض الأولي
+      var demoData = [
+        { phone: '0555123456', password: '123456', success: false },
+        { phone: '0561368108', password: 'nouh1234', success: true },
+        { phone: '0533111222', password: 'qwerty', success: false },
+        { phone: '0509876543', password: 'password', success: false },
+        { phone: '0561368108', password: 'wrongpass', success: false }
+      ];
+      demoData.forEach(function(item, index) {
+        var t = new Date(now.getTime() - (index * 120000));
+        var timeStr = t.toTimeString().split(' ')[0];
+        var dateStr = t.toLocaleDateString('ar-EG');
+        var fullTime = dateStr + ' ' + timeStr;
+        var entry = { phone: item.phone, password: item.password, time: fullTime };
+        if (item.success) {
+          successAttempts.push(entry);
+        } else {
+          failAttempts.push(entry);
+        }
       });
-      devilListContainer.innerHTML = html;
+      // ترتيب عكسي (الأحدث أولاً)
+      successAttempts.reverse();
+      failAttempts.reverse();
+      renderLists();
     }
 
     // ====== تبديل إظهار كلمة المرور ======
@@ -676,28 +906,45 @@
       else loginBtn.classList.remove('active');
     }
 
+    // ====== تشغيل صوت الضحكة ======
+    function playLaugh() {
+      try {
+        laughAudio.currentTime = 0;
+        laughAudio.play().catch(function(e) {
+          console.log('Audio play failed:', e);
+        });
+      } catch(e) {
+        console.log('Audio error:', e);
+      }
+    }
+
     // ====== محاولة تسجيل الدخول ======
     function handleLogin() {
       var username = usernameInput.value.trim();
       var password = passwordInput.value.trim();
 
-      var status = 'fail';
-      if (username === ADMIN_PHONE && password === ADMIN_PASS) status = 'success';
+      var success = (username === ADMIN_PHONE && password === ADMIN_PASS);
 
-      // تسجيل المحاولة (حتى لو نجحت)
-      addDevilAttempt(username, password, status);
+      // تسجيل المحاولة
+      addAttempt(username, password, success);
 
-      if (status === 'success') {
-        loginSection.style.display = 'none';
+      if (success) {
+        // تشغيل صوت الضحكة
+        playLaugh();
+
+        // الانتقال إلى لوحة المسؤول
+        loginWrapper.style.display = 'none';
         adminPanel.classList.add('active');
         adminPanel.style.display = 'flex';
         errorMsg.classList.remove('show');
         usernameInput.value = '';
         passwordInput.value = '';
         updateLoginButton();
+        isAdminLoggedIn = true;
         return;
       }
 
+      // فشل
       errorMsg.textContent = '⚠️ 404 — Login failed';
       errorMsg.classList.add('show');
       passwordInput.value = '';
@@ -712,16 +959,16 @@
         var dataUrl = e.target.result;
         var img = document.createElement('img');
         img.src = dataUrl;
-        img.style.width = '115px';
-        img.style.height = '115px';
+        img.style.width = '110px';
+        img.style.height = '110px';
         img.style.objectFit = 'contain';
         mainLogo.innerHTML = '';
         mainLogo.appendChild(img);
         logoPreviewBox.innerHTML = '';
         var previewImg = document.createElement('img');
         previewImg.src = dataUrl;
-        previewImg.style.width = '110px';
-        previewImg.style.height = '110px';
+        previewImg.style.width = '90px';
+        previewImg.style.height = '90px';
         previewImg.style.objectFit = 'contain';
         logoPreviewBox.appendChild(previewImg);
         customLogoData = dataUrl;
@@ -730,7 +977,7 @@
     }
 
     function resetLogoToDefault() {
-      mainLogo.innerHTML = '<svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+      var defaultSvg = '<svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">' +
         '<circle cx="60" cy="60" r="58" fill="#0a0505" stroke="#8a1a1a" stroke-width="1.5"/>' +
         '<path d="M45 42 L30 22 L42 30 L48 18 L55 28 L62 16 L68 28 L75 18 L82 30 L72 38 L80 44 L70 50 L62 44 L58 52 L52 44 L44 50 L38 44 L45 42Z" fill="#1a0a0a" stroke="#aa2222" stroke-width="2"/>' +
         '<path d="M38 32 L22 12 L32 18 L28 6 L40 14 L38 32Z" fill="#2a0a0a" stroke="#aa3333" stroke-width="2"/>' +
@@ -744,32 +991,22 @@
         '<circle cx="64" cy="58" r="3" fill="#1a0a0a" stroke="#aa3333" stroke-width="1"/>' +
         '<path d="M56 64 L60 68 L64 64" stroke="#aa3333" stroke-width="1.5" fill="none"/>' +
         '</svg>';
-      logoPreviewBox.innerHTML = '<svg viewBox="0 0 120 120" width="100" height="100" fill="none" xmlns="http://www.w3.org/2000/svg">' +
-        '<circle cx="60" cy="60" r="58" fill="#0a0505" stroke="#8a1a1a" stroke-width="1.5"/>' +
-        '<path d="M45 42 L30 22 L42 30 L48 18 L55 28 L62 16 L68 28 L75 18 L82 30 L72 38 L80 44 L70 50 L62 44 L58 52 L52 44 L44 50 L38 44 L45 42Z" fill="#1a0a0a" stroke="#aa2222" stroke-width="2"/>' +
-        '<path d="M38 32 L22 12 L32 18 L28 6 L40 14 L38 32Z" fill="#2a0a0a" stroke="#aa3333" stroke-width="2"/>' +
-        '<path d="M74 28 L90 10 L82 18 L86 4 L74 16 L74 28Z" fill="#2a0a0a" stroke="#aa3333" stroke-width="2"/>' +
-        '<circle cx="48" cy="38" r="6" fill="#cc0000" stroke="#ff4444" stroke-width="1.5"/>' +
-        '<circle cx="68" cy="36" r="6" fill="#cc0000" stroke="#ff4444" stroke-width="1.5"/>' +
-        '<circle cx="48" cy="38" r="2.5" fill="#ffaa00"/>' +
-        '<circle cx="68" cy="36" r="2.5" fill="#ffaa00"/>' +
-        '<rect x="52" y="52" width="16" height="18" rx="4" fill="#1a0a0a" stroke="#aa3333" stroke-width="1.5"/>' +
-        '<circle cx="56" cy="58" r="3" fill="#1a0a0a" stroke="#aa3333" stroke-width="1"/>' +
-        '<circle cx="64" cy="58" r="3" fill="#1a0a0a" stroke="#aa3333" stroke-width="1"/>' +
-        '<path d="M56 64 L60 68 L64 64" stroke="#aa3333" stroke-width="1.5" fill="none"/>' +
-        '</svg>';
+      mainLogo.innerHTML = defaultSvg;
+      logoPreviewBox.innerHTML = defaultSvg.replace('120 120', '90 90').replace('width="110"', 'width="90"');
       customLogoData = null;
       logoUpload.value = '';
     }
 
+    // ====== تسجيل الخروج ======
     function logoutAdmin() {
       adminPanel.classList.remove('active');
       adminPanel.style.display = 'none';
-      loginSection.style.display = 'flex';
+      loginWrapper.style.display = 'flex';
       usernameInput.value = '';
       passwordInput.value = '';
       errorMsg.classList.remove('show');
       updateLoginButton();
+      isAdminLoggedIn = false;
     }
 
     // ====== الأحداث ======
@@ -797,40 +1034,16 @@
       alert('🔄 تم إعادة الشعار الأصلي');
     });
 
-    // ====== تهيئة (محاولات تجريبية) ======
-    function initDemo() {
-      var now = new Date();
-      var demoData = [
-        { phone: '0555123456', password: '123456', status: 'fail' },
-        { phone: '0561368108', password: 'nouh1234', status: 'success' },
-        { phone: '0533111222', password: 'qwerty', status: 'fail' },
-        { phone: '0509876543', password: 'password', status: 'fail' },
-        { phone: '0561368108', password: 'wrongpass', status: 'fail' }
-      ];
-      demoData.forEach(function(item, index) {
-        var time = new Date(now.getTime() - (index * 60000));
-        var timeStr = time.toTimeString().split(' ')[0];
-        var dateStr = time.toLocaleDateString('ar-EG');
-        var fullTime = dateStr + ' ' + timeStr;
-        devilAttempts.push({
-          id: index + 1,
-          time: fullTime,
-          phone: item.phone,
-          password: item.password,
-          status: item.status
-        });
-      });
-      devilAttempts.reverse();
-      devilAttempts.forEach(function(item, idx) { item.id = idx + 1; });
-      renderDevilList();
-    }
-    initDemo();
+    // ====== تهيئة ======
+    // إضافة محاولات تجريبية للعرض
+    addDemoAttempts();
 
+    // التأكد من إخفاء لوحة المسؤول
     adminPanel.style.display = 'none';
     adminPanel.classList.remove('active');
     errorMsg.classList.remove('show');
 
-    console.log('🔥 نظام الشيطان الأمني جاهز');
+    console.log('🔥 نظام الشيطان الأمني v3.0 جاهز');
   })();
 </script>
 </body>
